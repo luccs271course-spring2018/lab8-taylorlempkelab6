@@ -24,8 +24,11 @@ public class SingleQueueService {
                 String current;
 		int remaining;
                 synchronized (lock) {
-                  current = null; // TODO try to take next name from queue
-		  remaining = 0; // TODO determine resulting size of queue
+                  current = queue.poll();
+                  remaining = queue.size();// TODO try to take next name from queue
+                                           // DONE
+		   // TODO determine resulting size of queue
+		   // DONE
                 }
                 if (current == null) {
                   System.out.println("no one waiting");
@@ -49,7 +52,8 @@ public class SingleQueueService {
       final String name = input.nextLine();
       boolean result;
       synchronized (lock) {
-        result = false; // TODO try to add this name tothe queue
+        result = queue.offer(name); // TODO try to add this name tothe queue
+                                    // DONE
       }
       if (result) {
         System.out.println(name + " has joined the queue");

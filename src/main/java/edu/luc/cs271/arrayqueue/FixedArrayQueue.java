@@ -35,7 +35,7 @@ public class FixedArrayQueue<E> implements SimpleQueue<E> {
       rear = (rear + 1) % capacity;
       data[rear] = obj;
       size++;
-      return ture;
+      return true;
     } else {
       return false;
     }
